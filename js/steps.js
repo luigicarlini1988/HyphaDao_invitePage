@@ -49,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         stepOne.classList.remove('pre')
 
 
-
-
         //function to fill the data in the slots
         function fillData() {
             daoNameSlot.innerHTML = daoName
@@ -69,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         function doSteps() {
             acceptButton.onclick = function () {
 
+                //If is mobile, just send user to the URL find in the parameters
                 if (/Android|iPhone/i.test(navigator.userAgent)) {
                     window.location.href = url;
                 } else {
@@ -77,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         stepTwo.classList.add('appear')
                     }, 200);
                 }
-
 
             }
 
