@@ -31,14 +31,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //parse stuff from the URL
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const url = urlParams.get('url')
+    const inviteUrl = urlParams.get('url')
 
 
-    if (url) {
+    if (inviteUrl) {
 
         //qr code generator
         const qrcode = new QRCode(qrCodeSlot, {
-            text: url,
+            text: inviteUrl,
             width: 500,
             height: 500,
             colorDark: '#F4F8FB',
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
-    if (!url) {
+    if (!inviteUrl) {
 
         stepOne.style.display = "none";
         stepZero.classList.add('appear')
