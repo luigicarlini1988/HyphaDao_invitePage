@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const acceptButton = document.getElementById("accept-button")
     const stepOne = document.getElementById("step-1")
     const stepTwo = document.getElementById("step-2")
+    const stepThree = document.getElementById("step-3")
     const backButton = document.getElementById("back")
 
 
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-    //function for the 2 steps animation
+    //function for the 3 steps animation
     function doSteps() {
         acceptButton.onclick = function () {
 
@@ -59,6 +60,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
             stepTwo.classList.remove('appear')
             setTimeout(function () {
                 stepOne.classList.remove('vanish')
+            }, 200);
+
+
+        }
+
+        qrCodeSlot.onclick = function () {
+
+            stepTwo.classList.add('vanish')
+            setTimeout(function () {
+                stepThree.classList.add('appear')
             }, 200);
 
 
