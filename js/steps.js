@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const url = urlParams.get('url')
 
 
-    if (queryString) {
+    if (url) {
 
         //qr code generator
         const qrcode = new QRCode(document.getElementById('qr-area'), {
@@ -51,14 +51,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
-    if (!queryString) {
+    if (!url) {
 
         stepOne.style.display = "none";
         stepZero.classList.add('appear')
 
     }
-
-
 
 
 
