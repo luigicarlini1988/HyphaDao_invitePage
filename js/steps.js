@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
 
-    //Slot with dymanic data to fill
+    //HTML slots with dymanic data to fill
     const daoNameSlot = document.getElementById("dao_name")
     const inviterNameSlot = document.getElementById("inviter")
     const memberSlot = document.getElementById("core-members")
@@ -69,10 +69,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
         function doSteps() {
             acceptButton.onclick = function () {
 
-                stepOne.classList.add('vanish')
-                setTimeout(function () {
-                    stepTwo.classList.add('appear')
-                }, 200);
+                if (/Android|iPhone/i.test(navigator.userAgent)) {
+                    window.location.href = url;
+                } else {
+                    stepOne.classList.add('vanish')
+                    setTimeout(function () {
+                        stepTwo.classList.add('appear')
+                    }, 200);
+                }
+
 
             }
 
