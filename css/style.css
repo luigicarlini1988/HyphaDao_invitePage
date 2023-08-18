@@ -290,7 +290,7 @@ p {
 
 #step-2.vanish {
     opacity:0;
-    transform:translateX(-50%) translateY(-280px) translateZ(-500px);
+    transform:translateX(-50%) translateY(-380px) translateZ(-500px);
     pointer-events: none;
 }
 
