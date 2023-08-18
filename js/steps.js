@@ -10,14 +10,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const daoLogoSlot = document.getElementById("daologo")
     const qrCodeSlot = document.getElementById("qr-area")
 
-    //here the data that should be taken from blockchain
+    //here the data that should be taken from graphQl or URL param
     const daoName = 'awesomeDAO'
     const inviterName = 'Maria'
     const memberNumber = '384'
     const communityNumber = '4840'
     const inviterAvatar = '<img src="img/avatars/avatar.jpg">'
     const daoLogo = '<img src="img/logos/awesome-logo.png" />'
-
 
 
     //this here are the elemennt used for triggering the 2steps animations
@@ -28,7 +27,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const stepZero = document.getElementById("step-zero")
     const backButton = document.getElementById("back")
 
-    //qr code stuf
+
+    //parse stuff from the URL
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const url = urlParams.get('url')
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (url) {
 
         //qr code generator
-        const qrcode = new QRCode(document.getElementById('qr-area'), {
+        const qrcode = new QRCode(qrCodeSlot, {
             text: url,
             width: 500,
             height: 500,
@@ -48,6 +48,58 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         stepOne.classList.remove('pre')
 
+
+
+
+        //function to fill the data in the slots
+        function fillData() {
+            daoNameSlot.innerHTML = daoName
+            inviterNameSlot.innerHTML = inviterName
+            memberSlot.innerHTML = memberNumber
+            communitySlot.innerHTML = communityNumber
+            inviterAvatarSlot.innerHTML = inviterAvatar
+            daoLogoSlot.innerHTML = daoLogo
+        }
+
+        fillData()
+
+
+
+        //function for the 3 steps animation
+        function doSteps() {
+            acceptButton.onclick = function () {
+
+                stepOne.classList.add('vanish')
+                setTimeout(function () {
+                    stepTwo.classList.add('appear')
+                }, 200);
+
+            }
+
+            backButton.onclick = function () {
+
+                stepTwo.classList.remove('appear')
+                setTimeout(function () {
+                    stepOne.classList.remove('vanish')
+                }, 200);
+
+
+            }
+
+            qrCodeSlot.onclick = function () {
+
+                stepTwo.classList.add('vanish')
+                setTimeout(function () {
+                    stepThree.classList.add('appear')
+                }, 200);
+
+
+            }
+
+        }
+
+        doSteps()
+
     }
 
 
@@ -57,58 +109,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         stepZero.classList.add('appear')
 
     }
-
-
-
-
-    //function to fill the data in the slots
-    function fillData() {
-        daoNameSlot.innerHTML = daoName
-        inviterNameSlot.innerHTML = inviterName
-        memberSlot.innerHTML = memberNumber
-        communitySlot.innerHTML = communityNumber
-        inviterAvatarSlot.innerHTML = inviterAvatar
-        daoLogoSlot.innerHTML = daoLogo
-    }
-
-    fillData()
-
-
-
-    //function for the 3 steps animation
-    function doSteps() {
-        acceptButton.onclick = function () {
-
-            stepOne.classList.add('vanish')
-            setTimeout(function () {
-                stepTwo.classList.add('appear')
-            }, 200);
-
-        }
-
-        backButton.onclick = function () {
-
-            stepTwo.classList.remove('appear')
-            setTimeout(function () {
-                stepOne.classList.remove('vanish')
-            }, 200);
-
-
-        }
-
-        qrCodeSlot.onclick = function () {
-
-            stepTwo.classList.add('vanish')
-            setTimeout(function () {
-                stepThree.classList.add('appear')
-            }, 200);
-
-
-        }
-
-    }
-
-    doSteps()
 
 
 
