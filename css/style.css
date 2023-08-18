@@ -207,12 +207,16 @@ p {
     aspect-ratio: 1 / 1;
     border-radius: 100%;
 }
+#step-1.pre {
+    opacity:0;
+    transform:translateX(-50%) translateY(40px) translateZ(0px);
+}
 
 #step-1 {
     position:absolute;
     transition-duration: .6s;
     left:50%;
-    transform:translateX(-50%);
+    transform:translateX(-50%) translateY(0px) translateZ(0px);
 
 }
 
@@ -240,24 +244,25 @@ p {
 
 
 #qr-area {
-    max-width:450px;
+    max-width:500px;
     text-align: center;
     margin:auto;
 
 }
 
-#qr-area img {
+#qr-area img,
+#qr-area canvas {
     width:100%;
     aspect-ratio: 1/1;
 }
 
 #step-2 .generic-card  .wrappo {
-    padding:15px;
+    padding:25px;
 }
 
 .message {
     text-align: center;
-    padding:0px 20px 40px 20px;
+    padding:20px 0px 40px 0px;
 }
 
 .message p:first-child {
@@ -294,7 +299,8 @@ p {
     pointer-events: none;
 }
 
-#step-3 {
+#step-3,
+#step-zero {
     text-align: center;
     position:absolute;
     transition-duration: .6s;
@@ -305,29 +311,34 @@ p {
     pointer-events: none;
 }
 
-#step-3  .wrappo {
+#step-3  .wrappo,
+#step-zero  .wrappo {
     min-height:max-content;
 }
 
-#step-3 img {
+#step-3 img,
+#step-zero img {
     width: 76px;
     margin-bottom:20px;
 }
 
 
-#step-3.appear {
+#step-3.appear,
+#step-zero.appear {
     opacity:1;
     top:calc(50% + 20px);
     pointer-events: all;
 }
 
-#step-3 .glow-back:before{
+#step-3 .glow-back:before,
+#step-zero .glow-back:before {
     opacity:1;
     width:calc(100% + 6px);
     height:calc(100% + 6px);
     left:-3px;
     top:-3px;
 }
+
 
 @media screen and (max-width : 600px) {
     #step-1,

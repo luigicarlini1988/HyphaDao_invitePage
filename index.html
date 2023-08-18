@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 <script type="text/javascript" src="js/steps.js"></script>
 
 <body>
@@ -24,7 +25,7 @@
         <div class="area">
 
             <!-- first step-->
-            <div id="step-1">
+            <div id="step-1" class="pre">
                 <div class="generic-card glow-back has-link">
                     <div class="wrappo">
                         <div class="top">
@@ -90,6 +91,19 @@
                             Invite Redeemed!
                         </p>
                         <p class="white">Welcome onboard!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- third step-->
+            <div id="step-zero">
+                <div class="generic-card glow-back has-link">
+                    <div class="wrappo">
+                        <img src="img/icons/ghost.svg" />
+                        <p class="title-small white">
+                            Something Missing
+                        </p>
+                        <p class="white">No invite found here...</p>
                     </div>
                 </div>
             </div>

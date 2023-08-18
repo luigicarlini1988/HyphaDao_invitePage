@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const communityNumber = '4840'
     const inviterAvatar = '<img src="img/avatars/avatar.jpg">'
     const daoLogo = '<img src="img/logos/awesome-logo.png" />'
-    const qrCode = '<img src="img/qr-code.png" />'
+
 
 
     //this here are the elemennt used for triggering the 2steps animations
@@ -25,7 +25,41 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const stepOne = document.getElementById("step-1")
     const stepTwo = document.getElementById("step-2")
     const stepThree = document.getElementById("step-3")
+    const stepZero = document.getElementById("step-zero")
     const backButton = document.getElementById("back")
+
+    //qr code stuf
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const url = urlParams.get('url')
+
+
+    if (queryString) {
+
+        //qr code generator
+        const qrcode = new QRCode(document.getElementById('qr-area'), {
+            text: url,
+            width: 500,
+            height: 500,
+            colorDark: '#F4F8FB',
+            colorLight: '#17294A',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        stepOne.classList.remove('pre')
+
+    }
+
+
+    if (!queryString) {
+
+        stepOne.style.display = "none";
+        stepZero.classList.add('appear')
+
+    }
+
+
+
 
 
 
@@ -37,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         communitySlot.innerHTML = communityNumber
         inviterAvatarSlot.innerHTML = inviterAvatar
         daoLogoSlot.innerHTML = daoLogo
-        qrCodeSlot.innerHTML = qrCode
     }
 
     fillData()
@@ -78,5 +111,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     doSteps()
+
+
+
 
 });
