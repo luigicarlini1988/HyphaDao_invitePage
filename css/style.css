@@ -342,7 +342,9 @@ p {
 
 @media screen and (max-width : 600px) {
     #step-1,
-    #step-2 {
+    #step-2,
+    #step-3,
+    #step-zero {
         width:100%;
     }
     .generic-card {

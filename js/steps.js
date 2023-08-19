@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 //If is mobile, just send user to the URL find in the parameters
                 if (/Android|iPhone/i.test(navigator.userAgent)) {
-                    window.location.href = url;
+                    window.location.href = inviteUrl;
                 } else {
                     stepOne.classList.add('vanish')
                     setTimeout(function () {
